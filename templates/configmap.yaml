@@ -5,3 +5,35 @@ metadata:
 data:
   prometheus-token: {{ .Values.secrets.prometheus | quote }}
   instana-key: {{ .Values.secrets.instana | quote }}
+
+---
+# Source: myfirstchart/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp101-myfirstchart
+  labels:
+    helm.sh/chart: myfirstchart-4.0.0
+    app.kubernetes.io/name: myfirstchart
+    app.kubernetes.io/instance: myapp101
+    app.kubernetes.io/version: "v1"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: myfirstchart
+      app.kubernetes.io/instance: myapp101
+  template:
+    name:
+    metadata:
+      labels:
+        app.kubernetes.io/name: myfirstchart
+        app.kubernetes.io/instance: myapp101
+    spec:
+      containers:
+        - name: myfirstchart
+          image: "manashwi/reactapp:v1"
+          ports:
+            - name: http
+              containerPort: 80
