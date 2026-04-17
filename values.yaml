@@ -17,5 +17,5 @@ service:
 
 
 secrets:
-  prometheus: <path:kv-avp-test-123#federation>
-  instana: <path:kv-avp-test-123#instana>
+  prometheus: <path:keyvault-seg-credentials#key-vault-REACT-APP-SEGMENT-KEY>
+  instana: <path:keyvault-seg-credentials#key-vault-REACT-APP-SEGMENT-URL>
