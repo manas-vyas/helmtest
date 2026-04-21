@@ -17,5 +17,5 @@ service:
 
 
 secrets:
-  prometheus: <path:keyvault-seg-credentials#key-vault-REACT-APP-SEGMENT-KEY>
-  instana: <path:keyvault-seg-credentials#key-vault-REACT-APP-SEGMENT-URL>
+  prometheus: <path:psl-kv-centralus#nginx-username>
+  instana: <path:psl-kv-centralus#nginx-password>
