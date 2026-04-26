@@ -4,27 +4,35 @@ metadata:
   name: {{ include "myfirstchart.fullname" . }}
   labels:
     {{- include "myfirstchart.labels" . | nindent 4 }}
+
 spec:
   replicas: {{ .Values.replicaCount }}
+
   selector:
     matchLabels:
       {{- include "myfirstchart.selectorLabels" . | nindent 6 }}
+
   template:
-    name: 
     metadata:
       labels:
         {{- include "myfirstchart.selectorLabels" . | nindent 8 }}
+
     spec:
       containers:
         - name: {{ .Chart.Name }}
+
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
+
           volumeMounts:
             - name: secret-volume
               mountPath: /etc/secrets
               readOnly: true
+
       volumes:
         - name: secret-volume
           secret:
