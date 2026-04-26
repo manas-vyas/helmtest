@@ -2,8 +2,8 @@ replicaCount: 1
 
 image:
   repository: manashwi/reactapp
-  pullPolicy: IfNotPresent
   tag: ""
+  pullPolicy: IfNotPresent
 
 service:
   type: NodePort
@@ -11,5 +11,5 @@ service:
   nodePort: 31231
 
 secrets:
-  prometheus: <path:wo-aks-dev-kv-03#nginx-username>
-  instana: <path:wo-aks-dev-kv-03#nginx-password>
+  prometheus: "<path:wo-aks-dev-kv-03#nginx-username>"
+  instana: "<path:wo-aks-dev-kv-03#nginx-password>"
