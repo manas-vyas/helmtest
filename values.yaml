@@ -1,20 +1,14 @@
-
 replicaCount: 1
 
 image:
   repository: manashwi/reactapp
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
 service:
   type: NodePort
   port: 80
   nodePort: 31231
-
-
-
-
 
 secrets:
   prometheus: <path:wo-aks-dev-kv-03#nginx-username>
